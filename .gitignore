@@ -1,0 +1,13 @@
+*.dll
+*.suo
+*.user
+bin
+obj
+packages
+.vs
+sitecore/Databases
+sitecore/Data
+sitecore/Website
+solr/*
+build/solr/nssm-2.24/*
+*.csproj.sitecore

@@ -1,0 +1,14 @@
+---
+ID: "8ca30ead-f130-4560-989a-f83d3a9b756b"
+Parent: "9599e3a4-9843-45e3-855b-48f29b2842f6"
+Template: "0437fee2-44c9-46a6-abe9-28858d9fee8c"
+Path: /sitecore/templates/Helix.Skeleton/Project/Helix.Skeleton
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20170601T153653Z

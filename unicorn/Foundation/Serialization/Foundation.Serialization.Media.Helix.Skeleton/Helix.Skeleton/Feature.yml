@@ -1,0 +1,14 @@
+---
+ID: "0fb02bc2-e42c-4c6e-ac49-c13f7771d7fb"
+Parent: "c25dde08-334e-4f63-a751-23c904dc45a4"
+Template: "fe5dd826-48c6-436d-b87a-7c4210c7413b"
+Path: /sitecore/media library/Helix.Skeleton/Feature
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20170530T120353Z

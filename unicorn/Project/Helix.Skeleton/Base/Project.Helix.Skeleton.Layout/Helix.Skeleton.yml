@@ -1,0 +1,18 @@
+---
+ID: "17a9e865-3f39-4ea8-86af-f4f47a1c0b7c"
+Parent: "7ab11acf-adb0-47e0-928e-cf3fb1c859be"
+Template: "93227c5d-4fef-474d-94c0-f252ec8e8219"
+Path: /sitecore/layout/Layouts/Helix.Skeleton/Project/Helix.Skeleton
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20170601T134953Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
