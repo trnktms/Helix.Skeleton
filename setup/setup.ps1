@@ -56,7 +56,7 @@ function Logo() {
 }
 
 # settings
-$skeletonName = "TestProject"
+$skeletonName = "Helix.Skeleton"
 $binDir = "\bin"
 $objDir = "\obj"
 $root = Split-Path -Parent $PSScriptRoot
