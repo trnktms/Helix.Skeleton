@@ -1,4 +1,4 @@
-# Helix.Skeleton!
+# Helix.Skeleton
 
 ### Project setup
  1. Run the `setup.ps1` PowerShell script in the `setup` folder, which sets up your solution based on the given `-ProjectName`
@@ -6,8 +6,6 @@
  3. Run a build: call the `build\build.cmd`. It deploys all the web projects at once into the `sitecore\Website` folder.
  4. Run the `unicorn_source_setup.ps1` PowerShell script in the `build` folder, which sets the sourceFolder for Unicorn in `sitecore\Website`
  5. Add the `https://sitecore.myget.org/F/sc-packages/api/v3/index.json` to the nuget package sources
-
-### Local deployment
 
 ### Unicorn sync
  1. Log in the sitecore as admin
