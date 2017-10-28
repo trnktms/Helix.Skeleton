@@ -1,3 +1,4 @@
+
 # Helix.Skeleton
 
 ### Project setup
@@ -11,3 +12,5 @@
  1. Log in the sitecore as admin
  2. Open the unicorn page : {yourdomain/unicorn.aspx}
  3. Syncronise all the projects
+
+> **Note:** Some idea and code implementation based Neil Shack's Helixbase project - https://github.com/muso31/Helixbase
