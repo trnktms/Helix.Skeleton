@@ -1,37 +1,37 @@
-Param([Parameter(Mandatory = $true)] [string]$ProjectName)
+Param([Parameter(Mandatory = $true)] [string]$projectName, [Parameter(Mandatory = $true)] [string]$sitecoreVersion, [Parameter(Mandatory = $true)] [string]$glassMapperVersion)
 
-function Replace($files) {
+function Replace($files, $replaceThis, $replaceWith) {
     foreach ($file in $files) {
         $fileContent = Get-Content $file.FullName
         if ($fileContent -and -not ($file.FullName.Contains($binDir) -or $file.FullName.Contains($objDir))) {
             Status($file.FullName)
-            $fileContent.Replace($skeletonName, $ProjectName) | Set-Content $file.FullName
+            $fileContent.Replace($replaceThis, $replaceWith) | Set-Content $file.FullName
         }
     }
 }
 
 function RenameFiles($files) {
     foreach ($file in $files) {
-        if ($file -and $file.Name.Contains($skeletonName) -and (-not ($file.FullName.Contains($binDir) -or $file.FullName.Contains($objDir)))) {         
+        if ($file -and $file.Name.Contains($sk_name) -and (-not ($file.FullName.Contains($binDir) -or $file.FullName.Contains($objDir)))) {         
             Status($file.FullName)
-            Rename-Item -Path $file.FullName  -NewName $file.Name.Replace($skeletonName, $ProjectName)
+            Rename-Item -Path $file.FullName  -NewName $file.Name.Replace($sk_name, $projectName)
         }
     }
 }
 
 function RenameDirs($dirs) {
     foreach ($dir in $dirs) {
-        if ($dir -and $dir.Name.Contains($skeletonName) -and (-not ($dir.FullName.Contains($binDir) -or $dir.FullName.Contains($objDir)))) {
+        if ($dir -and $dir.Name.Contains($sk_name) -and (-not ($dir.FullName.Contains($binDir) -or $dir.FullName.Contains($objDir)))) {
             $path = $dir.FullName
 
             $parentPath = $dir.Parent.FullName.Clone()
             $relativeParentPath = $parentPath.Replace($root, "")
-            if ($relativeParentPath.Contains($skeletonName)) {
-                $path = Join-Path -Path $root -ChildPath $relativeParentPath.Replace($skeletonName, $ProjectName)
+            if ($relativeParentPath.Contains($sk_name)) {
+                $path = Join-Path -Path $root -ChildPath $relativeParentPath.Replace($sk_name, $projectName)
                 $path = Join-Path -Path $path -ChildPath $dir.Name
             }
         
-            $replaced = $dir.Name.Replace($skeletonName, $ProjectName)
+            $replaced = $dir.Name.Replace($sk_name, $projectName)
             Status($path)
             Rename-Item -Path $path -NewName $replaced
         }
@@ -58,7 +58,9 @@ function Logo() {
 }
 
 # settings
-$skeletonName = "Helix.Skeleton"
+$sk_name = "Helix.Skeleton"
+$sk_sitecoreVersion = "[sitecoreVersion]"
+$sk_glassMapperVersion = "[glassMapperVersion]"
 $binDir = "\bin"
 $objDir = "\obj"
 $root = Split-Path -Parent $PSScriptRoot
@@ -69,6 +71,7 @@ $buildDir = Join-Path -Path $root -ChildPath "build"
 # files
 $unicornFiles = Get-ChildItem -Path $unicornDir -File -Recurse -Exclude *.dll,*.pdb,*.xml
 $srcFiles = Get-ChildItem -Path $srcDir -File -Recurse -Exclude *.dll,*.pdb,*.xml
+$packageFiles = Get-ChildItem -Path $srcDir -File -Recurse -Include packages.config,*.csproj
 $buildFiles = Get-ChildItem -Path $buildDir -File -Recurse -Exclude *.dll,*.pdb,*.xml
 
 # logo
@@ -76,19 +79,23 @@ Logo
 
 # replace in files
 Info("Setup unicorn files...")
-Replace($unicornFiles)
+Replace $unicornFiles $sk_name $projectName
 Info("Setup src files...")
-Replace($srcFiles)
+Replace $srcFiles $sk_name $projectName
 Info("Setup script files...")
-Replace($buildFiles)
+Replace $buildFiles $sk_name $projectName
+Info("Setup Sitecore version...")
+Replace $packageFiles $sk_sitecoreVersion $sitecoreVersion
+Info("Setup Glass Mapper version...")
+Replace $packageFiles  $sk_glassMapperVersion $glassMapperVersion
 
 # rename files
 Info("Rename unicorn files...")
-RenameFiles($unicornFiles)
+RenameFiles $unicornFiles
 Info("Rename src files...")
-RenameFiles($srcFiles)
+RenameFiles $srcFiles
 Info("Rename script files...")
-RenameFiles($buildFiles)
+RenameFiles $buildFiles
 
 # folders
 $unicornDirs = Get-ChildItem -Path $unicornDir -Directory -Recurse
@@ -96,6 +103,6 @@ $srcDirs = Get-ChildItem -Path $srcDir -Directory -Recurse
 
 # rename dirs
 Info("Rename unicorn directories...")
-RenameDirs($unicornDirs)
+RenameDirs $unicornDirs
 Info("Rename src directories ...")
-RenameDirs($srcDirs)
+RenameDirs $srcDirs
