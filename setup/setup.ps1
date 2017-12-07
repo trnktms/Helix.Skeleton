@@ -62,10 +62,12 @@ $objDir = "\obj"
 $root = Split-Path -Parent $PSScriptRoot
 $unicornDir = Join-Path -Path $root -ChildPath "unicorn"
 $srcDir = Join-Path -Path $root -ChildPath "src"
+$buildDir = Join-Path -Path $root -ChildPath "build"
 
 # files
 $unicornFiles = Get-ChildItem -Path $unicornDir -File -Recurse -Exclude *.dll,*.pdb,*.xml
 $srcFiles = Get-ChildItem -Path $srcDir -File -Recurse -Exclude *.dll,*.pdb,*.xml
+$buildFiles = Get-ChildItem -Path $buildDir -File -Recurse -Exclude *.dll,*.pdb,*.xml
 
 # logo
 Logo
@@ -75,12 +77,16 @@ Info("Setup unicorn files...")
 Replace($unicornFiles)
 Info("Setup src files...")
 Replace($srcFiles)
+Info("Setup script files...")
+Replace($buildFiles)
 
 # rename files
 Info("Rename unicorn files...")
 RenameFiles($unicornFiles)
 Info("Rename src files...")
 RenameFiles($srcFiles)
+Info("Rename script files...")
+RenameFiles($buildFiles)
 
 # folders
 $unicornDirs = Get-ChildItem -Path $unicornDir -Directory -Recurse
