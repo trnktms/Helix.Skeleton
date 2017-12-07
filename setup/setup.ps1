@@ -1,4 +1,4 @@
-Param([Parameter(Mandatory = $true)] [string]$projectName, [Parameter(Mandatory = $true)] [string]$sitecoreVersion, [Parameter(Mandatory = $true)] [string]$glassMapperVersion)
+Param([Parameter(Mandatory = $true)] [string]$projectName, [Parameter(Mandatory = $true)] [string]$sitecoreVersion, [Parameter(Mandatory = $true)] [string]$glassMapperVersion, [Parameter(Mandatory = $true)] [string]$dotnetVersion)
 
 function Replace($files, $replaceThis, $replaceWith) {
     foreach ($file in $files) {
@@ -61,6 +61,7 @@ function Logo() {
 $sk_name = "Helix.Skeleton"
 $sk_sitecoreVersion = "[sitecoreVersion]"
 $sk_glassMapperVersion = "[glassMapperVersion]"
+$sk_dotnetVersion = "[dotnetVersion]"
 $binDir = "\bin"
 $objDir = "\obj"
 $root = Split-Path -Parent $PSScriptRoot
@@ -88,6 +89,8 @@ Info("Setup Sitecore version...")
 Replace $packageFiles $sk_sitecoreVersion $sitecoreVersion
 Info("Setup Glass Mapper version...")
 Replace $packageFiles  $sk_glassMapperVersion $glassMapperVersion
+Info("Setup .NET version...")
+Replace $packageFiles  $sk_dotnetVersion $dotnetVersion
 
 # rename files
 Info("Rename unicorn files...")
