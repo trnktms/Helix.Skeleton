@@ -1,6 +1,7 @@
-# Helix.Skeleton
-
-![Setup demo](https://raw.githubusercontent.com/trnktms/Helix.Skeleton/master/setup/setup.gif)
+       __ ________   _____  __  ______ ________   ______________  _  __
+      / // / __/ /  /  _/ |/_/ / __/ //_/ __/ /  / __/_  __/ __ \/ |/ /
+     / _  / _// /___/ /_>  <  _\ \/ ,< / _// /__/ _/  / / / /_/ /    / 
+    /_//_/___/____/___/_/|_| /___/_/|_/___/____/___/ /_/  \____/_/|_/
 
 ### Purpose of the project
 Accelarate Helix based Sitecore project initial setup included with common needs.
