@@ -2,6 +2,9 @@
 
 ![Setup demo](https://raw.githubusercontent.com/trnktms/Helix.Skeleton/master/setup/setup.gif)
 
+### Purpose of the project
+Accelarate Helix based Sitecore project initial setup included with common needs.
+
 ### Initial Project setup
  1. Run the `setup.ps1` PowerShell script in the `setup` folder, which sets up your solution based on the given
     - `-projectName`
