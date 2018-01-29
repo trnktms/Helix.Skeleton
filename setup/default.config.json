@@ -1,6 +1,6 @@
 {
     "projectName": "Test",
-    "sitecoreVersion": "",
-    "glassMapperVersion": "",
-    "dotnetVersion": ""
+    "sitecoreVersion": "8.2.170614",
+    "glassMapperVersion": "4.4.0.199",
+    "dotnetVersion": "net452"
 }
