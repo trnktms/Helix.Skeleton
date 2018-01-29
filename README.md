@@ -13,7 +13,8 @@ Accelarate Helix based Sitecore project initial setup included with common needs
     - `"sitecoreVersion"` e.g. `8.2.170614`
     - `"glassMapperVersion"` e.g. `4.4.0.199`
     - `"dotnetVersion"` e.g. `net452`
-    > If you want to use your own configuration then give this as a parameter like this `.\init.ps1 -config "C:\temp\myconfig.config.json"`
+
+> If you want to use your own configuration then give this as a parameter like this `.\init.ps1 -config "C:\temp\myconfig.config.json"`
     
  2. Install Sitecore into the `sitecore` folder - Data, Database, Website
  3. Add the `https://sitecore.myget.org/F/sc-packages/api/v3/index.json` to the nuget package sources
