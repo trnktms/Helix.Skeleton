@@ -98,7 +98,7 @@ $buildDir = Join-Path -Path $root -ChildPath "build"
 # files
 $unicornFiles = Get-ChildItem -Path $unicornDir -File -Recurse -Exclude *.dll, *.pdb, *.xml
 $srcFiles = Get-ChildItem -Path $srcDir -File -Recurse -Exclude *.dll, *.pdb, *.xml
-$packageFiles = Get-ChildItem -Path $srcDir -File -Recurse -Include packages.config, *.csproj
+$packageFiles = Get-ChildItem -Path $srcDir -File -Recurse -Include packages.config, *.csproj, SitecoreTemplates.tt
 $buildFiles = Get-ChildItem -Path $buildDir -File -Recurse -Exclude *.dll, *.pdb, *.xml
 
 # logo
