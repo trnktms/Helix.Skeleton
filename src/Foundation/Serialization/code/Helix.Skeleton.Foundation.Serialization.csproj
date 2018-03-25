@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Helix.Skeleton.Foundation.Serialization</RootNamespace>
     <AssemblyName>Helix.Skeleton.Foundation.Serialization</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>[targetFramework]</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -44,28 +44,28 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Configy, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Configy.1.0.0\lib\net45\Configy.dll</HintPath>
+    <Reference Include="Configy">
+      <HintPath>..\..\..\packages\Configy.[configy.version]\lib\[configy.lib]\Configy.dll</HintPath>
     </Reference>
-    <Reference Include="Kamsar.WebConsole, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Kamsar.WebConsole.2.0.0\lib\net40\Kamsar.WebConsole.dll</HintPath>
+    <Reference Include="Kamsar.WebConsole">
+      <HintPath>..\..\..\packages\Kamsar.WebConsole.[kamsarWebconsole.version]\lib\[kamsarWebconsole.lib]\Kamsar.WebConsole.dll</HintPath>
     </Reference>
-    <Reference Include="MicroCHAP, Version=1.2.2.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\MicroCHAP.1.2.2.2\lib\net45\MicroCHAP.dll</HintPath>
+    <Reference Include="MicroCHAP">
+      <HintPath>..\..\..\packages\MicroCHAP.[microCHAP.version]\lib\[microCHAP.lib]\MicroCHAP.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Rainbow, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Rainbow.Core.2.0.0\lib\net452\Rainbow.dll</HintPath>
+    <Reference Include="Rainbow">
+      <HintPath>..\..\..\packages\Rainbow.Core.[rainbow.version]\lib\[rainbow.lib]\Rainbow.dll</HintPath>
     </Reference>
-    <Reference Include="Rainbow.Storage.Sc, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Rainbow.Storage.Sc.2.0.0\lib\net452\Rainbow.Storage.Sc.dll</HintPath>
+    <Reference Include="Rainbow.Storage.Sc">
+      <HintPath>..\..\..\packages\Rainbow.Storage.Sc.[rainbow.version]\lib\[rainbow.lib]\Rainbow.Storage.Sc.dll</HintPath>
     </Reference>
-    <Reference Include="Rainbow.Storage.Yaml, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Rainbow.Storage.Yaml.2.0.0\lib\net452\Rainbow.Storage.Yaml.dll</HintPath>
+    <Reference Include="Rainbow.Storage.Yaml">
+      <HintPath>..\..\..\packages\Rainbow.Storage.Yaml.[rainbow.version]\lib\[rainbow.lib]\Rainbow.Storage.Yaml.dll</HintPath>
     </Reference>
-    <Reference Include="Sitecore.Analytics.Core, Version=10.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Sitecore.Analytics.Core.NoReferences.[sitecoreVersion]\lib\[dotnetVersion]\Sitecore.Analytics.Core.dll</HintPath>
+    <Reference Include="Sitecore.Analytics.Core">
+      <HintPath>..\..\..\packages\Sitecore.Analytics.Core.NoReferences.[sitecore.version]\lib\[sitecore.lib]\Sitecore.Analytics.Core.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -83,8 +83,8 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="Unicorn, Version=4.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Unicorn.Core.4.0.2\lib\net452\Unicorn.dll</HintPath>
+    <Reference Include="Unicorn">
+      <HintPath>..\..\..\packages\Unicorn.Core.[unicorn.version]\lib\[unicorn.lib]\Unicorn.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

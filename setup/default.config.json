@@ -1,6 +1,53 @@
 {
     "projectName": "Test",
-    "sitecoreVersion": "8.2.170614",
-    "glassMapperVersion": "4.4.0.199",
-    "dotnetVersion": "net452"
+    "targetFramework": "v4.6",
+    "nugetTargetFramework": "net46",
+    "aspNet": {
+        "lib": "net45",
+        "mvcVersion": "5.2.3",
+        "webPagesVersion": "3.2.3",
+        "razorVersion": "3.2.3"
+    },
+    "sitecore": {
+        "version": "8.2.170614",
+        "lib": "net452"
+    },
+    "glassMapper": {
+        "version": "4.4.0.199",
+        "lib": "net45",
+        "sitecoreVersion": "100",
+        "mvcVersion": "Mvc52"
+    },
+    "castle": {
+        "version": "3.3.3",
+        "lib": "net45"
+    },
+    "rainbow": {
+        "version": "2.0.0",
+        "lib": "net452"
+    },
+    "rainbowCodeGeneration": {
+        "version": "0.2.0",
+        "lib": "net452"
+    },
+    "microsoftDependencyInjection": {
+        "version": "1.0.0",
+        "lib": "netstandard1.1"
+    },
+    "unicorn": {
+        "version": "4.0.2",
+        "lib": "net452"
+    },
+    "configy": {
+        "version": "1.0.0",
+        "lib": "net45"
+    },
+    "kamsarWebconsole": {
+        "version": "2.0.0",
+        "lib": "net40"
+    },
+    "microCHAP": {
+        "version": "1.2.2.2",
+        "lib": "net45"
+    }
 }
