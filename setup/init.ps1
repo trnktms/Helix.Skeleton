@@ -1,7 +1,7 @@
 Param([Parameter(Mandatory = $false)] [string]$configPath)
 
 if ([string]::IsNullOrEmpty($configPath)) {
-    $configPath = Join-Path $PSScriptRoot -ChildPath "default.config.json";
+    $configPath = Join-Path $PSScriptRoot -ChildPath "default.8.2.170614.config.json";
 }
 
 $config = (Get-Content $configPath) -join "`n" | ConvertFrom-Json
