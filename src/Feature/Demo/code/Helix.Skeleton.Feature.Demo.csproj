@@ -65,7 +65,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
-      <HintPath>..\..\..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.[microsoftDependencyInjection.version]\lib\[microsoftDependencyInjection.lib]\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      <HintPath>..\..\..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.[microsoftDependencyInjectionAbstraction.version]\lib\[microsoftDependencyInjectionAbstraction.lib]\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Rainbow">

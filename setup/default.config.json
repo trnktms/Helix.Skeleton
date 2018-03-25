@@ -34,6 +34,10 @@
         "version": "1.0.0",
         "lib": "netstandard1.1"
     },
+    "microsoftDependencyInjectionAbstraction": {
+        "version": "1.0.0",
+        "lib": "netstandard1.0"
+    },
     "unicorn": {
         "version": "4.0.2",
         "lib": "net452"

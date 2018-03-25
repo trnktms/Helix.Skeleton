@@ -87,22 +87,6 @@ function Logo() {
 
 # settings
 $sk_projectName = "Helix.Skeleton"
-$sk_targetFramework = GetConfigValue "targetFramework"
-$sk_aspNet_dotNetVersion = GetConfigValue "aspNet" "lib"
-$sk_aspNet_mvcVersion = GetConfigValue "aspNet" "mvcVersion"
-$sk_aspNet_webPagesVersion = GetConfigValue  "aspNet" "webPagesVersion"
-$sk_aspNet_razorVersion = GetConfigValue "aspNet" "razorVersion"
-$sk_sitecore_version = GetConfigValue "sitecore" "version"
-$sk_sitecore_dotNetVersion = GetConfigValue "sitecore" "lib"
-$sk_glassMapper_version = GetConfigValue "glassMapper" "version"
-$sk_glassMapper_dotNetVersion = GetConfigValue "glassMapper" "lib"
-$sk_glassMapper_sitecoreVersion = GetConfigValue "glassMapper" "sitecoreVersion"
-$sk_castle_coreVersion = GetConfigValue "castle" "version"
-$sk_castle_coreDotNetVersion = GetConfigValue "castle" "dotNetVersion"
-$sk_rainbow_version = GetConfigValue "rainbow" "version"
-$sk_glassMapper_sitecoreVersion = GetConfigValue "rainbow" "lib"
-$sk_castle_coreVersion = GetConfigValue "rainbowCodeGeneration" "version"
-$sk_castle_coreDotNetVersion = GetConfigValue "rainbowCodeGeneration" "lib"
 
 $binDir = "\bin"
 $objDir = "\obj"
@@ -128,45 +112,48 @@ Replace $srcFiles $sk_projectName $config.projectName
 Info("Setup script files...")
 Replace $buildFiles $sk_projectName $config.projectName
 
-ReplaceWithConfigValue $packageFiles $sk_targetFramework
-ReplaceWithConfigValue $packageFiles GetConfigValue "nugetTargetFramework"
+ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "targetFramework")
+ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "nugetTargetFramework")
 
-ReplaceWithConfigValue $packageFiles $sk_aspNet_dotNetVersion
-ReplaceWithConfigValue $packageFiles $sk_aspNet_mvcVersion
-ReplaceWithConfigValue $packageFiles $sk_aspNet_webPagesVersion
-ReplaceWithConfigValue $packageFiles $sk_aspNet_razorVersion
+ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "aspNet" "lib")
+ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "aspNet" "mvcVersion")
+ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "aspNet" "webPagesVersion")
+ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "aspNet" "razorVersion")
 
-ReplaceWithConfigValue $packageFiles $sk_sitecore_version
-ReplaceWithConfigValue $packageFiles $sk_sitecore_dotNetVersion
+ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "sitecore" "version")
+ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "sitecore" "lib")
 
-ReplaceWithConfigValue $packageFiles $sk_glassMapper_version
-ReplaceWithConfigValue $packageFiles $sk_glassMapper_dotNetVersion
-ReplaceWithConfigValue $packageFiles $sk_glassMapper_sitecoreVersion
-ReplaceWithConfigValue $packageFiles GetConfigValue "glassMapper" "mvcVersion"
+ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "glassMapper" "version")
+ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "glassMapper" "lib")
+ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "glassMapper" "sitecoreVersion")
+ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "glassMapper" "mvcVersion")
 
-ReplaceWithConfigValue $packageFiles $sk_castle_coreVersion
-ReplaceWithConfigValue $packageFiles $sk_castle_coreDotNetVersion
+ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "castle" "version")
+ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "castle" "lib")
 
-ReplaceWithConfigValue $packageFiles $sk_rainbow_version
-ReplaceWithConfigValue $packageFiles $sk_rainbow_dotNetVersion
+ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "rainbow" "version")
+ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "rainbow" "lib")
 
-ReplaceWithConfigValue $packageFiles $sk_rainbowCodeGeneration_version
-ReplaceWithConfigValue $packageFiles $sk_rainbowCodeGeneration_dotNetVersion
+ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "rainbowCodeGeneration" "version")
+ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "rainbowCodeGeneration" "lib")
 
-ReplaceWithConfigValue $packageFiles GetConfigValue "microsoftDependencyInjection" "version"
-ReplaceWithConfigValue $packageFiles GetConfigValue "microsoftDependencyInjection" "lib"
+ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "microsoftDependencyInjection" "version")
+ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "microsoftDependencyInjection" "lib")
 
-ReplaceWithConfigValue $packageFiles GetConfigValue "unicorn" "version"
-ReplaceWithConfigValue $packageFiles GetConfigValue "unicorn" "lib"
+ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "microsoftDependencyInjectionAbstraction" "version")
+ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "microsoftDependencyInjectionAbstraction" "lib")
 
-ReplaceWithConfigValue $packageFiles GetConfigValue "configy" "version"
-ReplaceWithConfigValue $packageFiles GetConfigValue "configy" "lib"
+ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "unicorn" "version")
+ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "unicorn" "lib")
 
-ReplaceWithConfigValue $packageFiles GetConfigValue "kamsarWebconsole" "version"
-ReplaceWithConfigValue $packageFiles GetConfigValue "kamsarWebconsole" "lib"
+ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "configy" "version")
+ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "configy" "lib")
 
-ReplaceWithConfigValue $packageFiles GetConfigValue "microCHAP" "version"
-ReplaceWithConfigValue $packageFiles GetConfigValue "microCHAP" "lib"
+ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "kamsarWebconsole" "version")
+ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "kamsarWebconsole" "lib")
+
+ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "microCHAP" "version")
+ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "microCHAP" "lib")
 
 # rename files
 Info("Rename unicorn files...")
