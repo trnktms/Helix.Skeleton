@@ -2,12 +2,12 @@
 <#@ output extension=".cs" #>
 <#@ assembly name="System.Core" #>
 <# // NOTE - Reference your NuGet packages for Rainbow and RainbowCodeGeneration here #>
-<#@ assembly name="$(SolutionDir)packages\Rainbow.Core.2.0.0\lib\net452\Rainbow.dll" #>
-<#@ assembly name="$(SolutionDir)packages\Rainbow.Storage.Yaml.2.0.0\lib\net452\Rainbow.Storage.Yaml.dll" #>
-<#@ assembly name="$(SolutionDir)packages\RainbowCodeGeneration.0.2.0\lib\net452\RainbowCodeGeneration.dll" #>
+<#@ assembly name="$(SolutionDir)packages\Rainbow.Core.[rainbow.version]\lib\[rainbow.lib]\Rainbow.dll" #>
+<#@ assembly name="$(SolutionDir)packages\Rainbow.Storage.Yaml.[rainbow.version]\lib\[rainbow.lib]\Rainbow.Storage.Yaml.dll" #>
+<#@ assembly name="$(SolutionDir)packages\RainbowCodeGeneration.[rainbowCodeGeneration.version]\lib\[rainbowCodeGeneration.lib]\RainbowCodeGeneration.dll" #>
 <# // NOTE - Reference your Sitecore.Kernel.dll and Sitecore.Logging.dll here #>
-<#@ assembly name="$(SolutionDir)packages\Sitecore.Kernel.NoReferences.8.2.170728\lib\net452\Sitecore.Kernel.dll" #>
-<#@ assembly name="$(SolutionDir)packages\Sitecore.Logging.NoReferences.8.2.170728\lib\net452\Sitecore.Logging.dll" #>
+<#@ assembly name="$(SolutionDir)packages\Sitecore.Kernel.NoReferences.[sitecore.version]\lib\[sitecore.lib]\Sitecore.Kernel.dll" #>
+<#@ assembly name="$(SolutionDir)packages\Sitecore.Logging.NoReferences.[sitecore.version]\lib\[sitecore.lib]\Sitecore.Logging.dll" #>
 <# 
 // CONFIGURATION
 var physicalFileStore = @"..\..\..\..\unicorn\Feature\Demo"; // the path to your serialisation items

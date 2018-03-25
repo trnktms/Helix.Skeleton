@@ -101,11 +101,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
-    <Content Include="SitecoreTemplates.tt">
+    <None Include="packages.config" />
+    <None Include="SitecoreTemplates.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>SitecoreTemplates.cs</LastGenOutput>
-    </Content>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Config\Include\z.Foundation\z.Glass.Mapper.Sc.ViewRender.config.exclude" />

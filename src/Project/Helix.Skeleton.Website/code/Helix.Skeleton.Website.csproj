@@ -101,7 +101,7 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <None Include="packages.config" />
     <Content Include="Views\Layouts\DefaultLayout.cshtml" />
   </ItemGroup>
   <ItemGroup />

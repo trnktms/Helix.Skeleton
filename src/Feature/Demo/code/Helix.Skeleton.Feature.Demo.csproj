@@ -157,13 +157,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Config\Include\z.Feature\Feature.Demo.Serialization.config" />
-    <Content Include="SitecoreTemplates.tt">
+    <None Include="SitecoreTemplates.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>SitecoreTemplates.cs</LastGenOutput>
-    </Content>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
