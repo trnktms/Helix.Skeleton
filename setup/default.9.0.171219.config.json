@@ -1,7 +1,7 @@
 {
-    "projectName": "9.0.171219",
-    "targetFramework": "v4.6",
-    "nugetTargetFramework": "net46",
+    "projectName": "MyProject",
+    "targetFramework": "v4.6.2",
+    "nugetTargetFramework": "net462",
     "aspNet": {
         "lib": "net45",
         "mvcVersion": "5.2.3",
@@ -9,13 +9,13 @@
         "razorVersion": "3.2.3"
     },
     "sitecore": {
-        "version": "8.2.170614",
-        "lib": "net452"
+        "version": "9.0.171219",
+        "lib": "NET462"
     },
     "glassMapper": {
-        "version": "4.4.0.199",
+        "version": "4.5.0.4",
         "lib": "net45",
-        "sitecoreVersion": "100",
+        "sitecoreVersion": "111",
         "mvcVersion": "Mvc52"
     },
     "castle": {
@@ -27,7 +27,7 @@
         "lib": "net452"
     },
     "rainbowCodeGeneration": {
-        "version": "0.2.0",
+        "version": "0.3.0",
         "lib": "net452"
     },
     "microsoftDependencyInjection": {
@@ -39,7 +39,7 @@
         "lib": "netstandard1.0"
     },
     "unicorn": {
-        "version": "4.0.2",
+        "version": "4.0.3",
         "lib": "net452"
     },
     "configy": {
