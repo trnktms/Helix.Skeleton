@@ -1,18 +1,70 @@
+![Helix.Skeleton Logo](doc/logo.jpg?raw=true "Helix.Skeleton Logo")
 
-         __ ________   _____  __  ______ ________   ______________  _  __
-        / // / __/ /  /  _/ |/_/ / __/ //_/ __/ /  / __/_  __/ __ \/ |/ /
-       / _  / _// /___/ /_>  <  _\ \/ ,< / _// /__/ _/  / / / /_/ /    / 
-      /_//_/___/____/___/_/|_| /___/_/|_/___/____/___/ /_/  \____/_/|_/
 
 ### Purpose of the project
 Accelarate Helix based Sitecore project initial setup included with common needs.
 
 ### Initial Project setup
- 1. Run the `init.ps1` PowerShell script from the `setup` folder, which sets up your solution based on the `default.config.json`
-    - `"projectName"`
-    - `"sitecoreVersion"` e.g. `8.2.170614`
-    - `"glassMapperVersion"` e.g. `4.4.0.199`
-    - `"dotnetVersion"` e.g. `net452`
+ 1. Run the `init.ps1` PowerShell script from the `setup` folder, which sets up your solution based on the **newest Sitecore update** `default.9.0.171219.config.json` by default. Here is all the settings what you can change:
+```
+{
+    "projectName": "MyProject",
+    "targetFramework": "v4.6.2",
+    "nugetTargetFramework": "net462",
+    "aspNet": {
+        "lib": "net45",
+        "mvcVersion": "5.2.3",
+        "webPagesVersion": "3.2.3",
+        "razorVersion": "3.2.3"
+    },
+    "sitecore": {
+        "version": "9.0.171219",
+        "lib": "NET462"
+    },
+    "glassMapper": {
+        "version": "4.5.0.4",
+        "lib": "net45",
+        "sitecoreVersion": "111",
+        "mvcVersion": "Mvc52"
+    },
+    "castle": {
+        "version": "3.3.3",
+        "lib": "net45"
+    },
+    "rainbow": {
+        "version": "2.0.0",
+        "lib": "net452"
+    },
+    "rainbowCodeGeneration": {
+        "version": "0.3.0",
+        "lib": "net452"
+    },
+    "microsoftDependencyInjection": {
+        "version": "1.0.0",
+        "lib": "netstandard1.1"
+    },
+    "microsoftDependencyInjectionAbstraction": {
+        "version": "1.0.0",
+        "lib": "netstandard1.0"
+    },
+    "unicorn": {
+        "version": "4.0.3",
+        "lib": "net452"
+    },
+    "configy": {
+        "version": "1.0.0",
+        "lib": "net45"
+    },
+    "kamsarWebconsole": {
+        "version": "2.0.0",
+        "lib": "net40"
+    },
+    "microCHAP": {
+        "version": "1.2.2.2",
+        "lib": "net45"
+    }
+}
+```
 
 > If you want to use your own configuration then give this as a parameter like this `.\init.ps1 -config "C:\temp\myconfig.config.json"`
     
