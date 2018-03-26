@@ -1,5 +1,4 @@
-![Helix.Skeleton Logo](doc/logo.jpg?raw=true "Helix.Skeleton Logo")
-
+# Helix.Skeleton
 
 ### Purpose of the project
 Accelarate Helix based Sitecore project initial setup included with common needs.
