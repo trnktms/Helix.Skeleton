@@ -20,6 +20,8 @@ namespace Helix.Skeleton.Foundation.ORM.App_Start
 
             // add any changes to the standard resolver here
 
+            dependencyResolver.Finalize();
+
             return dependencyResolver;
 		}
 
