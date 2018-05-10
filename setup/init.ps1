@@ -1,5 +1,7 @@
 Param([Parameter(Mandatory = $false)] [string]$configPath)
 
+# Get-Member -InputObject ((Get-Member -InputObject $config -MemberType NoteProperty)[0]) -MemberType NoteProperty
+
 if ([string]::IsNullOrEmpty($configPath)) {
     $configPath = Join-Path $PSScriptRoot -ChildPath "default.9.0.171219.config.json";
 }
@@ -7,6 +9,21 @@ if ([string]::IsNullOrEmpty($configPath)) {
 $config = (Get-Content $configPath) -join "`n" | ConvertFrom-Json
 
 # operation helpers
+function IterateOnObjectProperties ($object) {
+    $object.PSObject.Properties | ForEach-Object {
+        $subProperties = $_.Value.PSObject.Properties  | Where-Object { $_.MemberType -eq "NoteProperty" }
+        $parentPropertyName = $_.Name
+        if ($subProperties.Count -gt 0) {
+            $subProperties | ForEach-Object {
+                ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue $parentPropertyName $_.Name)
+            }
+        }
+        else {
+            ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue $parentPropertyName)
+        }
+    }
+}
+
 function GetConfigValue ($mainProperty, $subProperty) {
     if ([string]::IsNullOrEmpty($subProperty)) {
         return @{
@@ -112,48 +129,7 @@ Replace $srcFiles $sk_projectName $config.projectName
 Info("Setup script files...")
 Replace $buildFiles $sk_projectName $config.projectName
 
-ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "targetFramework")
-ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "nugetTargetFramework")
-
-ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "aspNet" "lib")
-ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "aspNet" "mvcVersion")
-ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "aspNet" "webPagesVersion")
-ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "aspNet" "razorVersion")
-
-ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "sitecore" "version")
-ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "sitecore" "lib")
-
-ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "glassMapper" "version")
-ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "glassMapper" "lib")
-ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "glassMapper" "sitecoreVersion")
-ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "glassMapper" "mvcVersion")
-
-ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "castle" "version")
-ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "castle" "lib")
-
-ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "rainbow" "version")
-ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "rainbow" "lib")
-
-ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "rainbowCodeGeneration" "version")
-ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "rainbowCodeGeneration" "lib")
-
-ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "microsoftDependencyInjection" "version")
-ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "microsoftDependencyInjection" "lib")
-
-ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "microsoftDependencyInjectionAbstraction" "version")
-ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "microsoftDependencyInjectionAbstraction" "lib")
-
-ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "unicorn" "version")
-ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "unicorn" "lib")
-
-ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "configy" "version")
-ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "configy" "lib")
-
-ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "kamsarWebconsole" "version")
-ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "kamsarWebconsole" "lib")
-
-ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "microCHAP" "version")
-ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue "microCHAP" "lib")
+IterateOnObjectProperties $config
 
 # rename files
 Info("Rename unicorn files...")

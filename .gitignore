@@ -11,3 +11,4 @@ sitecore/Website
 solr/*
 build/solr/nssm-2.24/*
 *.csproj.sitecore
+poc.ps1
