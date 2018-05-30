@@ -39,6 +39,7 @@ function GetConfigValue ($mainProperty, $subProperty) {
     }
 }
 
+# file operations
 function ReplaceWithConfigValue($files, $configValue) {
     Info("Setup " + $configValue.placeholder + " with " + $configValue.value + "...")
     Replace $files $configValue.placeholder $configValue.value
@@ -46,24 +47,24 @@ function ReplaceWithConfigValue($files, $configValue) {
 
 function Replace($files, $replaceThis, $replaceWith) {
     foreach ($file in $files) {
-        $fileContent = Get-Content $file.FullName
+        $fileContent = Get-Content -LiteralPath $file.FullName
         if ($fileContent -and -not ($file.FullName.Contains($binDir) -or $file.FullName.Contains($objDir))) {
             Status($file.FullName)
-            $fileContent.Replace($replaceThis, $replaceWith) | Set-Content $file.FullName
+            $fileContent.Replace($replaceThis, $replaceWith) | Set-Content -LiteralPath $file.FullName
         }
     }
 }
 
-function RenameFiles($files) {
+function RenameFiles($files, $newName) {
     foreach ($file in $files) {
         if ($file -and $file.Name.Contains($sk_projectName) -and (-not ($file.FullName.Contains($binDir) -or $file.FullName.Contains($objDir)))) {         
             Status($file.FullName)
-            Rename-Item -Path $file.FullName  -NewName $file.Name.Replace($sk_projectName, "[projectName]")
+            Rename-Item -LiteralPath $file.FullName -NewName $file.Name.Replace($sk_projectName, $newName)
         }
     }
 }
 
-function RenameDirs($dirs) {
+function RenameDirs($dirs, $newName) {
     foreach ($dir in $dirs) {
         if ($dir -and $dir.Name.Contains($sk_projectName) -and (-not ($dir.FullName.Contains($binDir) -or $dir.FullName.Contains($objDir)))) {
             $path = $dir.FullName
@@ -71,13 +72,13 @@ function RenameDirs($dirs) {
             $parentPath = $dir.Parent.FullName.Clone()
             $relativeParentPath = $parentPath.Replace($root, "")
             if ($relativeParentPath.Contains($sk_projectName)) {
-                $path = Join-Path -Path $root -ChildPath $relativeParentPath.Replace($sk_projectName, "[projectName]")
+                $path = Join-Path -Path $root -ChildPath $relativeParentPath.Replace($sk_projectName, $newName)
                 $path = Join-Path -Path $path -ChildPath $dir.Name
             }
         
-            $replaced = $dir.Name.Replace($sk_projectName, "[projectName]")
+            $replaced = $dir.Name.Replace($sk_projectName, $newName)
             Status($path)
-            Rename-Item -Path $path -NewName $replaced
+            Rename-Item -LiteralPath $path -NewName $replaced
         }
     }
 }
@@ -103,7 +104,7 @@ function Logo() {
 }
 
 # settings
-$sk_projectName = "Helix.Skeleton"
+$sk_projectName = "[projectName]"
 
 $binDir = "\bin"
 $objDir = "\obj"
@@ -123,21 +124,21 @@ Logo
 
 # replace in files
 Info("Setup unicorn files...")
-Replace $unicornFiles $sk_projectName "[projectName]"
+Replace $unicornFiles $sk_projectName $config.projectName
 Info("Setup src files...")
-Replace $srcFiles $sk_projectName "[projectName]"
+Replace $srcFiles $sk_projectName $config.projectName
 Info("Setup script files...")
-Replace $buildFiles $sk_projectName "[projectName]"
+Replace $buildFiles $sk_projectName $config.projectName
 
 IterateOnObjectProperties $config
 
 # rename files
 Info("Rename unicorn files...")
-RenameFiles $unicornFiles
+RenameFiles $unicornFiles $config.projectName
 Info("Rename src files...")
-RenameFiles $srcFiles
+RenameFiles $srcFiles $config.projectName
 Info("Rename script files...")
-RenameFiles $buildFiles
+RenameFiles $buildFiles $config.projectName
 
 # folders
 $unicornDirs = Get-ChildItem -Path $unicornDir -Directory -Recurse
@@ -145,6 +146,6 @@ $srcDirs = Get-ChildItem -Path $srcDir -Directory -Recurse
 
 # rename dirs
 Info("Rename unicorn directories...")
-RenameDirs $unicornDirs
+RenameDirs $unicornDirs $config.projectName
 Info("Rename src directories ...")
-RenameDirs $srcDirs
+RenameDirs $srcDirs $config.projectName
