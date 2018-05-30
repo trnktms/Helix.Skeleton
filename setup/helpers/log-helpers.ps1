@@ -6,7 +6,11 @@ function Status($message) {
 function Info($message) {
     $color = "magenta"
     Write-Host($message) -Foreground $color
-    Start-Sleep -Seconds 1
+}
+
+function InfoDark($message) {
+    $color = "darkmagenta"
+    Write-Host($message) -Foreground $color
 }
 
 function Logo() {

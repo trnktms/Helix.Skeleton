@@ -16,11 +16,11 @@ $sk_projectName = "[projectName]"
 $binDir = "\bin"
 $objDir = "\obj"
 $root = Split-Path -Parent $PSScriptRoot
-$unicornDir = Join-Path -Path $root -ChildPath "template\unicorn"
-$srcDir = Join-Path -Path $root -ChildPath "template\src"
-$buildDir = Join-Path -Path $root -ChildPath "template\build"
 $templateDir = Join-Path -Path $root -ChildPath "template"
 $targetDir = Join-Path -Path $root -ChildPath "target"
+$unicornDir = Join-Path -Path $templateDir -ChildPath "unicorn"
+$srcDir = Join-Path -Path $templateDir -ChildPath "src"
+$buildDir = Join-Path -Path $templateDir -ChildPath "build"
 
 # files
 $unicornFiles = Get-ChildItem -Path $unicornDir -File -Recurse -Exclude *.dll, *.pdb, *.xml
@@ -56,9 +56,10 @@ $srcDirs = Get-ChildItem -Path $srcDir -Directory -Recurse
 # rename dirs
 Info("Rename unicorn directories...")
 RenameDirs $unicornDirs $config.projectName
-Info("Rename src directories ...")
+Info("Rename src directories...")
 RenameDirs $srcDirs $config.projectName
 
 #copy to target
-Info("Copy to target ...")
+Info("Copy to target...")
 Get-ChildItem -Path $templateDir | Copy-Item -Destination $targetDir -Recurse
+InfoDark("DONE!")
