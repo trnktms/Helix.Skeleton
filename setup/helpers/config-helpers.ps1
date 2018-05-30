@@ -16,13 +16,13 @@ function IterateOnObjectProperties ($object) {
 function GetConfigValue ($mainProperty, $subProperty) {
     if ([string]::IsNullOrEmpty($subProperty)) {
         return @{
-            value       = $config.$mainProperty;
+            value = $config.$mainProperty;
             placeholder = "[" + $mainProperty + "]"
         };
     }
     else {
         return @{
-            value       = $config.$mainProperty.$subProperty;
+            value = $config.$mainProperty.$subProperty;
             placeholder = "[" + $mainProperty + "." + $subProperty + "]"
         };
     }

@@ -19,6 +19,8 @@ $root = Split-Path -Parent $PSScriptRoot
 $unicornDir = Join-Path -Path $root -ChildPath "template\unicorn"
 $srcDir = Join-Path -Path $root -ChildPath "template\src"
 $buildDir = Join-Path -Path $root -ChildPath "template\build"
+$templateDir = Join-Path -Path $root -ChildPath "template"
+$targetDir = Join-Path -Path $root -ChildPath "target"
 
 # files
 $unicornFiles = Get-ChildItem -Path $unicornDir -File -Recurse -Exclude *.dll, *.pdb, *.xml
@@ -58,6 +60,5 @@ Info("Rename src directories ...")
 RenameDirs $srcDirs $config.projectName
 
 #copy to target
-$templateDir = Join-Path -Path $root -ChildPath "template"
-$targetDir = Join-Path -Path $root -ChildPath "target"
-Get-ChildItem -Path $templateDir -Recurse | Copy-Item -Destination $targetDir
+Info("Copy to target ...")
+Get-ChildItem -Path $templateDir | Copy-Item -Destination $targetDir -Recurse
