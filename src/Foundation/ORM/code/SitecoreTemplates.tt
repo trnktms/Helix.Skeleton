@@ -12,7 +12,7 @@
 // CONFIGURATION
 var physicalFileStore = @"..\..\..\..\unicorn\Foundation\ORM"; // the path to your serialisation items
 var treeName = "Foundation.ORM.Templates"; // the name of the configuration you want to code-generate 
-var treePath = "/sitecore/templates/Helix.Skeleton/Foundation/ORM"; // the matching path in Sitecore for the configuration
+var treePath = "/sitecore/templates/[projectName]/Foundation/ORM"; // the matching path in Sitecore for the configuration
 
 var Tool = "RainbowCodeGeneration";
 var ToolVersion = "1.0";
@@ -28,7 +28,7 @@ var templates = RainbowCodeGeneration.RainbowReader.GetTemplates(Host.ResolvePat
 // </auto-generated>
 //------------------------------------------------------------------------------
 // ReSharper disable InconsistentNaming
-namespace Helix.Skeleton.Foundation.ORM
+namespace [projectName].Foundation.ORM
 {
 	using global::Sitecore.Data;
 

@@ -1,8 +1,8 @@
 using Microsoft.Extensions.DependencyInjection;
 using Sitecore.DependencyInjection;
-using Helix.Skeleton.Feature.Demo.Services;
+using [projectName].Feature.Demo.Services;
 
-namespace Helix.Skeleton.Feature.Demo.DI
+namespace [projectName].Feature.Demo.DI
 {
     public class RegisterContainer : IServicesConfigurator
     {

@@ -1,6 +1,6 @@
-using Helix.Skeleton.Foundation.ORM.Models;
+using [projectName].Foundation.ORM.Models;
 
-namespace Helix.Skeleton.Feature.Demo.Models
+namespace [projectName].Feature.Demo.Models
 {
     public interface IDemo : IGlassBase
     {

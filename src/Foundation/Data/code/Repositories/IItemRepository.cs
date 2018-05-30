@@ -1,9 +1,9 @@
 using Sitecore.Globalization;
 using System;
 using System.Collections.Generic;
-using Helix.Skeleton.Foundation.ORM.Models;
+using [projectName].Foundation.ORM.Models;
 
-namespace Helix.Skeleton.Foundation.Data.Repositories
+namespace [projectName].Foundation.Data.Repositories
 {
     public interface IItemRepository
     {

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
 
-namespace Helix.Skeleton.Foundation.ORM.Extensions
+namespace [projectName].Foundation.ORM.Extensions
 {
     public static class MapsConfigFactoryExtension
     {

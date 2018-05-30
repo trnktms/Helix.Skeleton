@@ -58,7 +58,7 @@ function RenameFiles($files) {
     foreach ($file in $files) {
         if ($file -and $file.Name.Contains($sk_projectName) -and (-not ($file.FullName.Contains($binDir) -or $file.FullName.Contains($objDir)))) {         
             Status($file.FullName)
-            Rename-Item -Path $file.FullName  -NewName $file.Name.Replace($sk_projectName, $config.projectName)
+            Rename-Item -Path $file.FullName  -NewName $file.Name.Replace($sk_projectName, "[projectName]")
         }
     }
 }
@@ -71,11 +71,11 @@ function RenameDirs($dirs) {
             $parentPath = $dir.Parent.FullName.Clone()
             $relativeParentPath = $parentPath.Replace($root, "")
             if ($relativeParentPath.Contains($sk_projectName)) {
-                $path = Join-Path -Path $root -ChildPath $relativeParentPath.Replace($sk_projectName, $config.projectName)
+                $path = Join-Path -Path $root -ChildPath $relativeParentPath.Replace($sk_projectName, "[projectName]")
                 $path = Join-Path -Path $path -ChildPath $dir.Name
             }
         
-            $replaced = $dir.Name.Replace($sk_projectName, $config.projectName)
+            $replaced = $dir.Name.Replace($sk_projectName, "[projectName]")
             Status($path)
             Rename-Item -Path $path -NewName $replaced
         }
@@ -123,11 +123,11 @@ Logo
 
 # replace in files
 Info("Setup unicorn files...")
-Replace $unicornFiles $sk_projectName $config.projectName
+Replace $unicornFiles $sk_projectName "[projectName]"
 Info("Setup src files...")
-Replace $srcFiles $sk_projectName $config.projectName
+Replace $srcFiles $sk_projectName "[projectName]"
 Info("Setup script files...")
-Replace $buildFiles $sk_projectName $config.projectName
+Replace $buildFiles $sk_projectName "[projectName]"
 
 IterateOnObjectProperties $config
 

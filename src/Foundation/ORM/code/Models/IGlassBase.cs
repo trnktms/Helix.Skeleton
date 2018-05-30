@@ -1,7 +1,7 @@
 using Sitecore.Globalization;
 using System;
 
-namespace Helix.Skeleton.Foundation.ORM.Models
+namespace [projectName].Foundation.ORM.Models
 {
     public interface IGlassBase
     {

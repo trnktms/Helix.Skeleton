@@ -2,7 +2,7 @@
 ID: "f9e782c3-fbd8-4a8c-82fe-7cac9eb82ef2"
 Parent: "a700cbfe-d467-4666-81da-dd6273f420f3"
 Template: "f1828a2c-7e5d-4bbd-98ca-320474871548"
-Path: /sitecore/media library/Helix.Skeleton/Feature/Demo/demo_preview
+Path: /sitecore/media library/[projectName]/Feature/Demo/demo_preview
 DB: master
 SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"

@@ -2,12 +2,12 @@
 ID: "8a4eafa7-8619-4af1-837b-1a9e4891f44e"
 Parent: "895e3bc3-c2a3-4432-a70d-a01fbb95bdec"
 Template: "2a3e91a0-7987-44b5-ab34-35c2d9de83b9"
-Path: /sitecore/layout/Renderings/Helix.Skeleton/Feature/Demo/Demo
+Path: /sitecore/layout/Renderings/[projectName]/Feature/Demo/Demo
 DB: master
 SharedFields:
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
-  Value: /sitecore/templates/Helix.Skeleton/Feature/Demo/Demo
+  Value: /sitecore/templates/[projectName]/Feature/Demo/Demo
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
   Value: ./Content

@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 
-namespace Helix.Skeleton.Foundation.DI.Methods
+namespace [projectName].Foundation.DI.Methods
 {
     public class GetTypes
     {

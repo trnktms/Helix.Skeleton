@@ -1,6 +1,6 @@
-using Helix.Skeleton.Feature.Demo.Models;
+using [projectName].Feature.Demo.Models;
 
-namespace Helix.Skeleton.Feature.Demo.Services
+namespace [projectName].Feature.Demo.Services
 {
     public interface IDemoService
     {

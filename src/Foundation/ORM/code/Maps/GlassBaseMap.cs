@@ -1,8 +1,8 @@
 using Glass.Mapper.Sc.Configuration;
 using Glass.Mapper.Sc.Maps;
-using Helix.Skeleton.Foundation.ORM.Models;
+using [projectName].Foundation.ORM.Models;
 
-namespace Helix.Skeleton.Foundation.ORM.Maps
+namespace [projectName].Foundation.ORM.Maps
 {
     public class GlassBaseMap : SitecoreGlassMap<IGlassBase>
     {

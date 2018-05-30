@@ -2,7 +2,7 @@
 ID: "f94e4933-090d-47ba-84a2-de94ab1a6023"
 Parent: "3b2b0676-71c3-4bd1-aa3b-05138f63c221"
 Template: "e269fbb5-3750-427a-9149-7aa950b49301"
-Path: /sitecore/templates/Helix.Skeleton/Feature/Demo/Demo/Data
+Path: /sitecore/templates/[projectName]/Feature/Demo/Demo/Data
 DB: master
 Languages:
 - Language: en

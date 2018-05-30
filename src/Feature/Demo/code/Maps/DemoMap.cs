@@ -1,8 +1,8 @@
 using Glass.Mapper.Sc.Maps;
-using Helix.Skeleton.Feature.Demo.Models;
-using Helix.Skeleton.Foundation.ORM.Models;
+using [projectName].Feature.Demo.Models;
+using [projectName].Foundation.ORM.Models;
 
-namespace Helix.Skeleton.Feature.Demo.Maps
+namespace [projectName].Feature.Demo.Maps
 {
     public class DemoMap : SitecoreGlassMap<IDemo>
     {

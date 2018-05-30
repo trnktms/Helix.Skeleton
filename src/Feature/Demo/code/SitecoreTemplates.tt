@@ -2,17 +2,17 @@
 <#@ output extension=".cs" #>
 <#@ assembly name="System.Core" #>
 <# // NOTE - Reference your NuGet packages for Rainbow and RainbowCodeGeneration here #>
-<#@ assembly name="$(SolutionDir)packages\Rainbow.Core.[rainbow.version]\lib\[rainbow.lib]\Rainbow.dll" #>
-<#@ assembly name="$(SolutionDir)packages\Rainbow.Storage.Yaml.[rainbow.version]\lib\[rainbow.lib]\Rainbow.Storage.Yaml.dll" #>
-<#@ assembly name="$(SolutionDir)packages\RainbowCodeGeneration.[rainbowCodeGeneration.version]\lib\[rainbowCodeGeneration.lib]\RainbowCodeGeneration.dll" #>
+<#@ assembly name="$(SolutionDir)packages\Rainbow.Core.2.0.0\lib\net452\Rainbow.dll" #>
+<#@ assembly name="$(SolutionDir)packages\Rainbow.Storage.Yaml.2.0.0\lib\net452\Rainbow.Storage.Yaml.dll" #>
+<#@ assembly name="$(SolutionDir)packages\RainbowCodeGeneration.0.3.0\lib\net452\RainbowCodeGeneration.dll" #>
 <# // NOTE - Reference your Sitecore.Kernel.dll and Sitecore.Logging.dll here #>
-<#@ assembly name="$(SolutionDir)packages\Sitecore.Kernel.NoReferences.[sitecore.version]\lib\[sitecore.lib]\Sitecore.Kernel.dll" #>
-<#@ assembly name="$(SolutionDir)packages\Sitecore.Logging.NoReferences.[sitecore.version]\lib\[sitecore.lib]\Sitecore.Logging.dll" #>
+<#@ assembly name="$(SolutionDir)packages\Sitecore.Kernel.NoReferences.9.0.171219\lib\NET462\Sitecore.Kernel.dll" #>
+<#@ assembly name="$(SolutionDir)packages\Sitecore.Logging.NoReferences.9.0.171219\lib\NET462\Sitecore.Logging.dll" #>
 <# 
 // CONFIGURATION
 var physicalFileStore = @"..\..\..\..\unicorn\Feature\Demo"; // the path to your serialisation items
 var treeName = "Feature.Demo.Template"; // the name of the configuration you want to code-generate 
-var treePath = "/sitecore/templates/Helix.Skeleton/Feature/Demo"; // the matching path in Sitecore for the configuration
+var treePath = "/sitecore/templates/[projectName]/Feature/Demo"; // the matching path in Sitecore for the configuration
 
 var Tool = "RainbowCodeGeneration";
 var ToolVersion = "1.0";
@@ -28,7 +28,7 @@ var templates = RainbowCodeGeneration.RainbowReader.GetTemplates(Host.ResolvePat
 // </auto-generated>
 //------------------------------------------------------------------------------
 // ReSharper disable InconsistentNaming
-namespace Helix.Skeleton.Feature.Demo
+namespace [projectName].Feature.Demo
 {
 	using global::Sitecore.Data;
 

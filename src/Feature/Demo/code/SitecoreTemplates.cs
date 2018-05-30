@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 // ReSharper disable InconsistentNaming
-namespace Helix.Skeleton.Feature.Demo
+namespace [projectName].Feature.Demo
 {
 	using global::Sitecore.Data;
 
@@ -18,19 +18,19 @@ namespace Helix.Skeleton.Feature.Demo
 		/// <summary>
 		/// Demo
 		/// <para></para>
-		/// <para>Path: /sitecore/templates/Helix.Skeleton/Feature/Demo/Demo</para>	
+		/// <para>Path: /sitecore/templates/[projectName]/Feature/Demo/Demo</para>	
 		/// <para>ID: 3b2b0676-71c3-4bd1-aa3b-05138f63c221</para>	
 		/// </summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("RainbowCodeGeneration", "1.0")]
 		public struct Demo
         {
 			/// <summary>
-			/// The ID for /sitecore/templates/Helix.Skeleton/Feature/Demo/Demo
+			/// The ID for /sitecore/templates/[projectName]/Feature/Demo/Demo
 			/// </summary>
 			[global::System.CodeDom.Compiler.GeneratedCodeAttribute("RainbowCodeGeneration", "1.0")]
             public static ID Id = new ID("{3b2b0676-71c3-4bd1-aa3b-05138f63c221}");
 			/// <summary>
-			/// The TemplateId string for /sitecore/templates/Helix.Skeleton/Feature/Demo/Demo
+			/// The TemplateId string for /sitecore/templates/[projectName]/Feature/Demo/Demo
 			/// </summary>
 			[global::System.CodeDom.Compiler.GeneratedCodeAttribute("RainbowCodeGeneration", "1.0")]
 			public const string TemplateId = "3b2b0676-71c3-4bd1-aa3b-05138f63c221";

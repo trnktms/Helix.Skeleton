@@ -1,7 +1,7 @@
-using Helix.Skeleton.Feature.Demo.Models;
-using Helix.Skeleton.Foundation.Data.Repositories;
+using [projectName].Feature.Demo.Models;
+using [projectName].Foundation.Data.Repositories;
 
-namespace Helix.Skeleton.Feature.Demo.Services
+namespace [projectName].Feature.Demo.Services
 {
     /// <summary>
     /// This service only created for demo purposes.

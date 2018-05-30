@@ -3,10 +3,10 @@ using Glass.Mapper.Configuration;
 using Glass.Mapper.IoC;
 using Glass.Mapper.Maps;
 using Glass.Mapper.Sc.IoC;
-using Helix.Skeleton.Foundation.ORM.Extensions;
+using [projectName].Foundation.ORM.Extensions;
 using IDependencyResolver = Glass.Mapper.Sc.IoC.IDependencyResolver;
 
-namespace Helix.Skeleton.Foundation.ORM.App_Start
+namespace [projectName].Foundation.ORM.App_Start
 {
     /// <source>
     /// https://github.com/muso31/Helixbase/blob/master/src/Foundation/ORM/code/App_Start/GlassMapperScCustom.cs
@@ -57,7 +57,7 @@ namespace Helix.Skeleton.Foundation.ORM.App_Start
         {
             // Add maps here
             // mapsConfigFactory.Add(() => new SeoMap());
-            mapsConfigFactory.AddFluentMaps("Helix.Skeleton.Foundation.*", "Helix.Skeleton.Feature.*");
+            mapsConfigFactory.AddFluentMaps("[projectName].Foundation.*", "[projectName].Feature.*");
         }
     }
 }

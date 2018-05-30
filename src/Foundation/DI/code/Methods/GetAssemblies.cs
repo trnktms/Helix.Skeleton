@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
 
-namespace Helix.Skeleton.Foundation.DI.Methods
+namespace [projectName].Foundation.DI.Methods
 {
     public class GetAssemblies
     {

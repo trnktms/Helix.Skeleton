@@ -1,6 +1,6 @@
 # Author: Zsolt Keller
 
-$fileName = "Helix.Skeleton.Sitecore.config"
+$fileName = "[projectName].Sitecore.config"
 $configPath = "sitecore\Website\App_Config\Include"
 $sourceFilePath =  Join-Path $PSScriptRoot -ChildPath $filename
 

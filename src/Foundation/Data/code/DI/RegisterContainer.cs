@@ -1,9 +1,9 @@
 using Glass.Mapper.Sc;
 using Microsoft.Extensions.DependencyInjection;
 using Sitecore.DependencyInjection;
-using Helix.Skeleton.Foundation.Data.Repositories;
+using [projectName].Foundation.Data.Repositories;
 
-namespace Helix.Skeleton.Foundation.Data.DI
+namespace [projectName].Foundation.Data.DI
 {
     public class RegisterContainer : IServicesConfigurator
     {

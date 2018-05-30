@@ -1,7 +1,7 @@
 using System.Web.Mvc;
-using Helix.Skeleton.Feature.Demo.Services;
+using [projectName].Feature.Demo.Services;
 
-namespace Helix.Skeleton.Feature.Demo.Controllers
+namespace [projectName].Feature.Demo.Controllers
 {
     public class DemoController : Controller
     {

@@ -3,9 +3,9 @@ using System.Linq;
 using System.Reflection;
 using System.Web.Mvc;
 using Microsoft.Extensions.DependencyInjection;
-using Helix.Skeleton.Foundation.DI.Methods;
+using [projectName].Foundation.DI.Methods;
 
-namespace Helix.Skeleton.Foundation.DI.Extensions
+namespace [projectName].Foundation.DI.Extensions
 {
     public static class ServiceCollectionExtensions
     {
