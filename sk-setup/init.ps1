@@ -4,18 +4,19 @@ Param([Parameter(Mandatory = $false)] [string]$configPath)
 . ".\helpers\file-helpers.ps1"
 . ".\helpers\log-helpers.ps1"
 
-if ([string]::IsNullOrEmpty($configPath)) {
-    $configPath = Join-Path $PSScriptRoot -ChildPath "default.9.0.171219.config.json";
-}
-
-$config = (Get-Content $configPath) -join "`n" | ConvertFrom-Json
-
 # settings
 $sk_projectName = "[projectName]"
-
 $root = Split-Path -Parent $PSScriptRoot
 $templateDir = Join-Path -Path $root -ChildPath "sk-template"
+$configsDir = Join-Path -Path $root -ChildPath "sk-configs"
 $targetDir = Join-Path -Path $root -ChildPath "target"
+
+if ([string]::IsNullOrEmpty($configPath)) {
+    $configPath = Join-Path $configsDir -ChildPath "default.9.0.171219.config.json";
+}
+
+# deserialiaze JSON config
+$config = (Get-Content $configPath) -join "`n" | ConvertFrom-Json
 
 #copy to target
 Info("Copy to target...")
