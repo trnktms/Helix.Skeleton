@@ -1,4 +1,4 @@
-Param([Parameter(Mandatory = $false)] [string]$configPath)
+Param([Parameter(Mandatory = $false)] [string]$configPath, [Parameter(Mandatory = $false)] [string]$templatePath)
 
 . ".\helpers\config-helpers.ps1"
 . ".\helpers\file-helpers.ps1"
@@ -12,7 +12,11 @@ $configsDir = Join-Path -Path $root -ChildPath "sk-configs"
 $targetDir = Join-Path -Path $root -ChildPath "target"
 
 if ([string]::IsNullOrEmpty($configPath)) {
-    $configPath = Join-Path $configsDir -ChildPath "default.9.0.171219.config.json";
+    $configPath = Join-Path $configsDir -ChildPath "default.9.0.171219.config.json"
+}
+
+if ([string]::IsNullOrEmpty($templatePath)) {
+    $templatePath = Join-Path -Path $templateDir -ChildPath "default"
 }
 
 # deserialiaze JSON config
@@ -20,7 +24,7 @@ $config = (Get-Content $configPath) -join "`n" | ConvertFrom-Json
 
 #copy to target
 Info("Copy to target...")
-Get-ChildItem -Path $templateDir | Copy-Item -Destination $targetDir -Recurse
+Get-ChildItem -Path $templatePath | Copy-Item -Destination $targetDir -Recurse
 
 $unicornDir = Join-Path -Path $targetDir -ChildPath "unicorn"
 $srcDir = Join-Path -Path $targetDir -ChildPath "src"
