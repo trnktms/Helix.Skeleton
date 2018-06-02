@@ -1,14 +1,14 @@
-function IterateOnObjectProperties ($object) {
+function IterateOnObjectProperties ($object, $files) {
     $object.PSObject.Properties | ForEach-Object {
         $subProperties = $_.Value.PSObject.Properties  | Where-Object { $_.MemberType -eq "NoteProperty" }
         $parentPropertyName = $_.Name
         if ($subProperties.Count -gt 0) {
             $subProperties | ForEach-Object {
-                ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue $parentPropertyName $_.Name)
+                ReplaceWithConfigValue $files -configValue (GetConfigValue $parentPropertyName $_.Name)
             }
         }
         else {
-            ReplaceWithConfigValue $packageFiles -configValue (GetConfigValue $parentPropertyName)
+            ReplaceWithConfigValue $files -configValue (GetConfigValue $parentPropertyName)
         }
     }
 }

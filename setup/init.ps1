@@ -13,14 +13,17 @@ $config = (Get-Content $configPath) -join "`n" | ConvertFrom-Json
 # settings
 $sk_projectName = "[projectName]"
 
-$binDir = "\bin"
-$objDir = "\obj"
 $root = Split-Path -Parent $PSScriptRoot
 $templateDir = Join-Path -Path $root -ChildPath "template"
 $targetDir = Join-Path -Path $root -ChildPath "target"
-$unicornDir = Join-Path -Path $templateDir -ChildPath "unicorn"
-$srcDir = Join-Path -Path $templateDir -ChildPath "src"
-$buildDir = Join-Path -Path $templateDir -ChildPath "build"
+
+#copy to target
+Info("Copy to target...")
+Get-ChildItem -Path $templateDir | Copy-Item -Destination $targetDir -Recurse
+
+$unicornDir = Join-Path -Path $targetDir -ChildPath "unicorn"
+$srcDir = Join-Path -Path $targetDir -ChildPath "src"
+$buildDir = Join-Path -Path $targetDir -ChildPath "build"
 
 # files
 $unicornFiles = Get-ChildItem -Path $unicornDir -File -Recurse -Exclude *.dll, *.pdb, *.xml
@@ -33,21 +36,21 @@ Logo
 
 # replace in files
 Info("Setup unicorn files...")
-Replace $unicornFiles $sk_projectName $config.projectName
+ReplaceContent $unicornFiles $sk_projectName $config.projectName
 Info("Setup src files...")
-Replace $srcFiles $sk_projectName $config.projectName
+ReplaceContent $srcFiles $sk_projectName $config.projectName
 Info("Setup script files...")
-Replace $buildFiles $sk_projectName $config.projectName
+ReplaceContent $buildFiles $sk_projectName $config.projectName
 
-IterateOnObjectProperties $config
+IterateOnObjectProperties $config $packageFiles
 
 # rename files
 Info("Rename unicorn files...")
-RenameFiles $unicornFiles $config.projectName
+RenameFiles $unicornFiles $config.projectName $sk_projectName
 Info("Rename src files...")
-RenameFiles $srcFiles $config.projectName
+RenameFiles $srcFiles $config.projectName $sk_projectName
 Info("Rename script files...")
-RenameFiles $buildFiles $config.projectName
+RenameFiles $buildFiles $config.projectName $sk_projectName
 
 # folders
 $unicornDirs = Get-ChildItem -Path $unicornDir -Directory -Recurse
@@ -55,11 +58,8 @@ $srcDirs = Get-ChildItem -Path $srcDir -Directory -Recurse
 
 # rename dirs
 Info("Rename unicorn directories...")
-RenameDirs $unicornDirs $config.projectName
+RenameDirs $unicornDirs $config.projectName $sk_projectName
 Info("Rename src directories...")
-RenameDirs $srcDirs $config.projectName
+RenameDirs $srcDirs $config.projectName $sk_projectName
 
-#copy to target
-Info("Copy to target...")
-Get-ChildItem -Path $templateDir | Copy-Item -Destination $targetDir -Recurse
 InfoDark("DONE!")
