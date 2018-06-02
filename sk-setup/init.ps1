@@ -14,7 +14,7 @@ $config = (Get-Content $configPath) -join "`n" | ConvertFrom-Json
 $sk_projectName = "[projectName]"
 
 $root = Split-Path -Parent $PSScriptRoot
-$templateDir = Join-Path -Path $root -ChildPath "template"
+$templateDir = Join-Path -Path $root -ChildPath "sk-template"
 $targetDir = Join-Path -Path $root -ChildPath "target"
 
 #copy to target
