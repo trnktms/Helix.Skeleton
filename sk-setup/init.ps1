@@ -7,7 +7,7 @@ Param([Parameter(Mandatory = $false)] [string]$configPath, [Parameter(Mandatory 
 # settings
 $sk_projectName = "[projectName]"
 $root = Split-Path -Parent $PSScriptRoot
-$templateDir = Join-Path -Path $root -ChildPath "sk-template"
+$templatesDir = Join-Path -Path $root -ChildPath "sk-templates"
 $configsDir = Join-Path -Path $root -ChildPath "sk-configs"
 $targetDir = Join-Path -Path $root -ChildPath "target"
 
@@ -16,7 +16,7 @@ if ([string]::IsNullOrEmpty($configPath)) {
 }
 
 if ([string]::IsNullOrEmpty($templatePath)) {
-    $templatePath = Join-Path -Path $templateDir -ChildPath "default"
+    $templatePath = Join-Path -Path $templatesDir -ChildPath "default"
 }
 
 # deserialiaze JSON config
