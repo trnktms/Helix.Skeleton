@@ -64,13 +64,24 @@ Accelarate Helix based Sitecore project initial setup included with common needs
     }
 }
 ```
-
-> If you want to use your own configuration then give this as a parameter like this `.\init.ps1 -config "C:\temp\myconfig.config.json"`
-    
  2. Install Sitecore into the `sitecore` folder - Data, Database, Website
  3. Add the `https://sitecore.myget.org/F/sc-packages/api/v3/index.json` to the nuget package sources
  4. Run a build: call the `build\build.cmd`. It deploys all the web projects at once into the `sitecore\Website` folder.
  5. Run the `unicorn_source_setup.ps1` PowerShell script in the `build` folder, which sets the sourceFolder for Unicorn in `sitecore\Website`
+
+### How to create your own template and configuration
+#### Configuration
+You can create your own configuration with the same parameter names or you can even create your custom parameters.
+Only the `projectName` is a hardcoded and required parameter name but the others can be removed and changed.
+#### Template
+You can create your own templates (different, less complex or more complex), you just need to follow the following placeholder name convention:
+- One level deep parameter: `[<parameterName>]` e.g. `[nugetTargetFramework]`
+- Two or more level deep: `[<firstLevel>.<secondLevel>]` e.g. `[aspNet.lib]`
+
+**Important: your JSON configuration should be in sync with your template!**
+
+### How to use your own template and configuration
+You can just simply call the `init.ps1 -configPath "c:\my\custom\config.json" -templatePath "c:\my\custom\template"`
 
 ### Unicorn sync
  1. Log in the sitecore as admin
