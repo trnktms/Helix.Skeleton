@@ -1,6 +1,6 @@
 {
     "projectName": "MyProject",
-    "targetFramework": "v4.5",
+    "targetFramework": "v4.6.2",
     "nugetTargetFramework": "net462",
     "aspNet": {
         "lib": "net45",
