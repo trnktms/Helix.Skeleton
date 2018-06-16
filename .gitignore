@@ -5,6 +5,7 @@ bin
 obj
 packages
 .vs
+.vscode
 sitecore/Databases
 sitecore/Data
 sitecore/Website
