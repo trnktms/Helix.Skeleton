@@ -1,16 +1,14 @@
 # log helpers
 function Status($message) {
-    Write-Host($message) -Foreground "green"
+    Write-Host($message) -Foreground "magenta"
 }
 
 function Info($message) {
-    $color = "magenta"
-    Write-Host($message) -Foreground $color
+    Write-Host($message) -Foreground "green"
 }
 
 function InfoDark($message) {
-    $color = "darkmagenta"
-    Write-Host($message) -Foreground $color
+    Write-Host($message) -Foreground "darkmagenta"
 }
 
 function Logo() {

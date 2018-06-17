@@ -4,26 +4,57 @@ function IterateOnObjectProperties ($object, $files) {
         $parentPropertyName = $_.Name
         if ($subProperties.Count -gt 0) {
             $subProperties | ForEach-Object {
-                ReplaceWithConfigValue $files -configValue (GetConfigValue $parentPropertyName $_.Name)
+                ReplaceWithConfigValue $files -configValue (GetConfigValue $object $parentPropertyName $_.Name)
             }
         }
         else {
-            ReplaceWithConfigValue $files -configValue (GetConfigValue $parentPropertyName)
+            ReplaceWithConfigValue $files -configValue (GetConfigValue $object $parentPropertyName)
         }
     }
 }
 
-function GetConfigValue ($mainProperty, $subProperty) {
+function GetConfigValue ($object, $mainProperty, $subProperty) {
+    # static generation
+    if ($mainProperty.StartsWith("[[") -and $mainProperty.EndsWith("]]")) {
+        switch ($object.$mainProperty.type) {
+            "guid" {
+                return @{
+                    value       = [Guid]::NewGuid().ToString($object.$mainProperty.format)
+                    placeholder = "[" + $mainProperty + "]"
+                }
+            }
+            Default {
+                return;
+            }
+        }
+    }
+
+    # unique generation
+    if ($mainProperty.StartsWith("[") -and $mainProperty.EndsWith("]")) {
+        switch ($object.$mainProperty.type) {
+            "guid" {
+                return @{
+                    value       = $object.$mainProperty.format
+                    operation   = { param($format) return [Guid]::NewGuid().ToString($format); }
+                    placeholder = "[" + $mainProperty + "]"
+                }
+            }
+            Default {
+                return;
+            }
+        }
+    }
+
+    # static
     if ([string]::IsNullOrEmpty($subProperty)) {
         return @{
-            value = $config.$mainProperty;
+            value       = $object.$mainProperty
             placeholder = "[" + $mainProperty + "]"
         };
     }
-    else {
-        return @{
-            value = $config.$mainProperty.$subProperty;
-            placeholder = "[" + $mainProperty + "." + $subProperty + "]"
-        };
-    }
+
+    return @{
+        value       =  $object.$mainProperty.$subProperty
+        placeholder = "[" + $mainProperty + "." + $subProperty + "]"
+    };
 }

@@ -3,15 +3,7 @@ Param([Parameter(Mandatory = $false)] [string]$configPath, [Parameter(Mandatory 
 . ".\helpers\config-helpers.ps1"
 . ".\helpers\file-helpers.ps1"
 . ".\helpers\log-helpers.ps1"
-
-# settings
-$sk_projectName = "[projectName]"
-$root = Split-Path -Parent $PSScriptRoot
-$templatesDir = Join-Path -Path $root -ChildPath "sk-templates"
-$queueDir = Join-Path -Path $root -ChildPath "sk-queue"
-$configsDir = Join-Path -Path $root -ChildPath "sk-configs"
-$templatesInitDir = Join-Path -Path $templatesDir -ChildPath "init"
-$targetDir = Join-Path -Path $root -ChildPath "target"
+. ".\settings\settings.ps1"
 
 if ([string]::IsNullOrEmpty($configPath)) {
     $configPath = Join-Path $configsDir -ChildPath "default.9.0.171219.config.json"
@@ -44,7 +36,7 @@ IterateOnObjectProperties $config $files
 Info("Rename files...")
 RenameFiles $files $config.projectName $sk_projectName
 
-# files and folders
+# folders
 $dirs = Get-ChildItem -Path $queueDir -Directory -Recurse
 
 # rename dirs
@@ -53,7 +45,7 @@ RenameDirs $dirs $config.projectName $sk_projectName
 
 # copy to target
 Info("Copy to target...")
-Get-ChildItem -Path $queueDir | Copy-Item -Destination $targetDir -Recurse
+Get-ChildItem -Path $queueDir | Copy-Item -Destination $targetDir -Recurse -Force
 
 # clean up queue
 Info("Clean up queue...")

@@ -53,5 +53,13 @@
     "microCHAP": {
         "version": "1.2.2.2",
         "lib": "net45"
+    },
+    "[guid]" : {
+        "type" : "guid",
+        "format": "D"
+    },
+    "[[subProjectId]]" : {
+        "type" : "guid",
+        "format" : "B"
     }
 }
