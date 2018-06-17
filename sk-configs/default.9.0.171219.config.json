@@ -60,6 +60,6 @@
     },
     "[[subProjectId]]" : {
         "type" : "guid",
-        "format" : "B"
+        "format" : "D"
     }
 }

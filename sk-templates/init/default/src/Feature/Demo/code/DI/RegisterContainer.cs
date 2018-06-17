@@ -9,7 +9,6 @@ namespace [projectName].Feature.Demo.DI
         public void Configure(IServiceCollection serviceCollection)
         {
             serviceCollection.AddTransient<IDemoService, DemoService>();
-        
         }
     }
 }

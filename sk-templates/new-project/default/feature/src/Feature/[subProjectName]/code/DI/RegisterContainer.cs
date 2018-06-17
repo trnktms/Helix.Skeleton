@@ -1,6 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
 using Sitecore.DependencyInjection;
-using [projectName].Feature.Demo.Services;
 
 namespace [projectName].Feature.[subProjectName].DI
 {

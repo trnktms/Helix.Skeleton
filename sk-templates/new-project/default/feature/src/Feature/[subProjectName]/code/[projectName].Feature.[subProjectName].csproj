@@ -9,7 +9,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>[[[subProjectId]]]</ProjectGuid>
+    <ProjectGuid>{[[[subProjectId]]]}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -138,11 +138,6 @@
     <Compile Include="Models\.skeleton" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\.skeleton" />
-    <Compile Include="SitecoreTemplates.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SitecoreTemplates.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Foundation\Data\code\[projectName].Foundation.Data.csproj">
@@ -158,6 +153,7 @@
     <Content Include="App_Config\Include\z.Feature\Feature.[subProjectName].Serialization.config" />
     <None Include="SitecoreTemplates.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SitecoreTemplates.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

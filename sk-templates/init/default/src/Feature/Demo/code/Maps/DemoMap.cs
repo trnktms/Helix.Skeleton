@@ -13,7 +13,6 @@ namespace [projectName].Feature.Demo.Maps
                 ImportMap<IGlassBase>();
                 x.Field(y => y.Text).FieldId(SitecoreTemplates.Demo.Text.FieldId);
             });
-            
         }
     }
 }
