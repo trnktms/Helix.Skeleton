@@ -31,7 +31,7 @@ $files = Get-ChildItem -Path $queueDir -File -Recurse -Exclude *.dll, *.pdb, *.x
 
 # replace in files
 [LogHelper]::Info("Setup content in files...");
-[FileHelper]::ReplaceContent($files, $sk_projectName, $config.projectName);
+[FileHelper]::ReplaceContent($files, $sk_projectName, $config.projectName, $null);
 
 [ConfigHelper]::IterateOnObjectProperties($config, $files);
 

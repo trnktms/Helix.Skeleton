@@ -19,6 +19,7 @@ class ConfigHelper {
     static [object] GetConfigValue($object, $mainProperty, $subProperty) {
         return @{
             value       = $object.$mainProperty.$subProperty
+            operation   = $null
             placeholder = "[" + $mainProperty + "." + $subProperty + "]"
         };
     }
@@ -34,6 +35,7 @@ class ConfigHelper {
 
         return @{
             value       = $object.$mainProperty
+            operation   = $null
             placeholder = "[" + $mainProperty + "]"
         };
     }
@@ -69,6 +71,7 @@ class ConfigHelper {
             "guid" {
                 return @{
                     value       = [Guid]::NewGuid().ToString($object.$mainProperty.format)
+                    operation   = $null
                     placeholder = "[" + $mainProperty + "]"
                 };
             }
