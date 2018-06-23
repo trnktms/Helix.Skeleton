@@ -1,9 +1,10 @@
 # Helix.Skeleton
 
 ### Purpose of the project
-Accelarate Helix based Sitecore project initial setup included with common needs.
+Accelarate Helix based Sitecore project initial setup and project addition included with common needs.
 
-### Initial Project setup
+### Commands
+#### init.ps1
  1. Run the `init.ps1` PowerShell script from the `setup` folder, which sets up your solution based on the **newest Sitecore update** `default.9.0.171219.config.json` by default. Here is all the settings what you can change:
 ```
 {
@@ -61,6 +62,14 @@ Accelarate Helix based Sitecore project initial setup included with common needs
     "microCHAP": {
         "version": "1.2.2.2",
         "lib": "net45"
+    },
+    "[guid]" : {
+        "type" : "guid",
+        "format": "D"
+    },
+    "[[subProjectId]]" : {
+        "type" : "guid",
+        "format" : "D"
     }
 }
 ```
@@ -69,6 +78,12 @@ Accelarate Helix based Sitecore project initial setup included with common needs
  4. Run a build: call the `build\build.cmd`. It deploys all the web projects at once into the `sitecore\Website` folder.
  5. Run the `unicorn_source_setup.ps1` PowerShell script in the `build` folder, which sets the sourceFolder for Unicorn in `sitecore\Website`
 
+#### add.ps1
+ 1. Run the add.ps1 command with 2 required parameters:
+    - `subProjectName`: name of the new project (e.g. `Navigation`)
+    - `templateName`: name of the subfolder from `.\sk-templates\default` (`feature` or `foundation`)
+ 2. This command uses the same `default.9.0.171219.config.json` config above
+ 3. Include the newly generated project to your Visual Studio solution manually
 ### How to create your own template and configuration
 #### Configuration
 You can create your own configuration with the same parameter names or you can even create your custom parameters.
@@ -77,12 +92,15 @@ Only the `projectName` is a hardcoded and required parameter name but the others
 You can create your own templates (different, less complex or more complex), you just need to follow the following placeholder name convention:
 - One level deep parameter: `[<parameterName>]` e.g. `[nugetTargetFramework]`
 - Two or more level deep: `[<firstLevel>.<secondLevel>]` e.g. `[aspNet.lib]`
+- `[guid]`: unique GUID generation in all places where it is used
+- `[[subProjectId]]`: one-time GUID generation, so the same generated GUID is used in all places
 
 **Important: your JSON configuration should be in sync with your template!**
 
 ### How to use your own template and configuration
-You can just simply call the `init.ps1 -configPath "c:\my\custom\config.json" -templatePath "c:\my\custom\template"`
-
+Just use the following parameters when you call `init.ps1` or `add.ps1`:
+- `configPath`
+- `templatePath`
 ### Unicorn sync
  1. Log in the sitecore as admin
  2. Open the unicorn page : {yourdomain/unicorn.aspx}
