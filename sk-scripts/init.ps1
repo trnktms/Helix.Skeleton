@@ -9,7 +9,7 @@ Param(
 . ".\settings\settings.ps1";
 
 if ([string]::IsNullOrEmpty($configPath)) {
-    $configPath = Join-Path $configsDir -ChildPath "default.9.0.171219.config.json";
+    $configPath = Join-Path $configsDir -ChildPath "default.9.0.180604.config.json";
 }
 
 if ([string]::IsNullOrEmpty($templatePath)) {
