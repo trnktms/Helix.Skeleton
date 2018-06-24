@@ -78,12 +78,21 @@ Accelarate Helix based Sitecore project initial setup and project addition inclu
  4. Run a build: call the `build\build.cmd`. It deploys all the web projects at once into the `sitecore\Website` folder.
  5. Run the `unicorn_source_setup.ps1` PowerShell script in the `build` folder, which sets the sourceFolder for Unicorn in `sitecore\Website`
 
-#### add.ps1
- 1. Run the add.ps1 command with 2 required parameters:
+#### add-project.ps1
+ 1. Run the `add-project.ps1` command with 2 required parameters:
     - `subProjectName`: name of the new project (e.g. `Navigation`)
     - `templateName`: name of the subfolder from `.\sk-templates\default` (`feature` or `foundation`)
  2. This command uses the same `default.9.0.180604.config.json` config above
  3. Include the newly generated project to your Visual Studio solution manually
+
+#### add-module.ps1
+ 1. Run the `add-module.ps1` command with 3 required parameters:
+    - `moduleName`: name of the new module (e.g. `TextModule`)
+    - `subProjectName`: name of the new project (e.g. `Navigation`)
+    - `templateName`: name of the subfolder from `.\sk-templates\default` (`feature` or `foundation`)
+ 2. This command uses the same `default.9.0.180604.config.json` config above
+ 3. Include the newly generated files to your Visual Studio project manually
+
 ### How to create your own template and configuration
 #### Configuration
 You can create your own configuration with the same parameter names or you can even create your custom parameters.
