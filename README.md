@@ -5,7 +5,7 @@ Accelarate Helix based Sitecore project initial setup and project addition inclu
 
 ### Commands
 #### init.ps1
- 1. Run the `init.ps1` PowerShell script from the `setup` folder, which sets up your solution based on **Sitecore 9 update 2** `default.9.0.171219.config.json` by default. Here is all the settings what you can change:
+ 1. Run the `init.ps1` PowerShell script from the `setup` folder, which sets up your solution based on **Sitecore 9 update 2** `default.9.0.180604.config.json` by default. Here is all the settings what you can change:
 ```
 {
     "projectName": "MyProject",
@@ -18,7 +18,7 @@ Accelarate Helix based Sitecore project initial setup and project addition inclu
         "razorVersion": "3.2.3"
     },
     "sitecore": {
-        "version": "9.0.171219",
+        "version": "9.0.180604",
         "lib": "NET462"
     },
     "glassMapper": {
@@ -82,7 +82,7 @@ Accelarate Helix based Sitecore project initial setup and project addition inclu
  1. Run the add.ps1 command with 2 required parameters:
     - `subProjectName`: name of the new project (e.g. `Navigation`)
     - `templateName`: name of the subfolder from `.\sk-templates\default` (`feature` or `foundation`)
- 2. This command uses the same `default.9.0.171219.config.json` config above
+ 2. This command uses the same `default.9.0.180604.config.json` config above
  3. Include the newly generated project to your Visual Studio solution manually
 ### How to create your own template and configuration
 #### Configuration

@@ -3,6 +3,7 @@ using module ".\helpers\file-helper.psm1";
 using module ".\helpers\log-helper.psm1"
 
 Param(
+    [Parameter(Mandatory = $true)] [string]$moduleName,
     [Parameter(Mandatory = $true)] [string]$subProjectName,
     [Parameter(Mandatory = $true)] [string]$templateName,
     [Parameter(Mandatory = $false)] [string]$configPath,
@@ -15,7 +16,7 @@ if ([string]::IsNullOrEmpty($configPath)) {
 }
 
 if ([string]::IsNullOrEmpty($templatePath)) {
-    $templatePath = Join-Path -Path $templatesAddDir -ChildPath "default";
+    $templatePath = Join-Path -Path $templatesAddModuleDir -ChildPath "default";
     $templatePath = Join-Path -Path $templatePath -ChildPath $templateName;
 }
 
@@ -36,6 +37,7 @@ $files = Get-ChildItem -Path $queueDir -File -Recurse -Exclude *.dll, *.pdb, *.x
 [LogHelper]::Info("Setup content in files...");
 [FileHelper]::ReplaceContent($files, $sk_projectName, $config.projectName, $null);
 [FileHelper]::ReplaceContent($files, $sk_subProjectName, $subProjectName, $null);
+[FileHelper]::ReplaceContent($files, $sk_moduleName, $moduleName, $null);
 
 [ConfigHelper]::IterateOnObjectProperties($config, $files);
 
@@ -46,6 +48,9 @@ $files = Get-ChildItem -Path $queueDir -File -Recurse -Exclude *.dll, *.pdb, *.x
 $files = Get-ChildItem -Path $queueDir -File -Recurse -Exclude *.dll, *.pdb, *.xml;
 [FileHelper]::RenameFiles($files, $subProjectName, $sk_subProjectName);
 
+$files = Get-ChildItem -Path $queueDir -File -Recurse -Exclude *.dll, *.pdb, *.xml;
+[FileHelper]::RenameFiles($files, $moduleName, $sk_moduleName);
+
 # folders
 $dirs = Get-ChildItem -Path $queueDir -Directory -Recurse;
 
@@ -55,6 +60,9 @@ $dirs = Get-ChildItem -Path $queueDir -Directory -Recurse;
 
 $dirs = Get-ChildItem -Path $queueDir -Directory -Recurse;
 [FileHelper]::RenameDirs($root, $dirs, $subProjectName, $sk_subProjectName);
+
+$dirs = Get-ChildItem -Path $queueDir -Directory -Recurse;
+[FileHelper]::RenameDirs($root, $dirs, $moduleName, $sk_moduleName);
 
 # copy to target
 [LogHelper]::Info("Copy to target...");
