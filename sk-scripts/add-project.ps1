@@ -5,10 +5,15 @@ using module ".\helpers\log-helper.psm1"
 Param(
     [Parameter(Mandatory = $true)] [string]$subProjectName,
     [Parameter(Mandatory = $true)] [string]$templateName,
+    [Parameter(Mandatory = $false)] [string]$targetPath,
     [Parameter(Mandatory = $false)] [string]$configPath,
     [Parameter(Mandatory = $false)] [string]$templatePath)
 
 . ".\settings\settings.ps1";
+
+if ([string]::IsNullOrEmpty($targetPath)) {
+    $targetPath = $defaultTargetDir;
+}
 
 if ([string]::IsNullOrEmpty($configPath)) {
     $configPath = Join-Path $configsDir -ChildPath "default.9.0.180604.config.json";
@@ -58,7 +63,7 @@ $dirs = Get-ChildItem -Path $queueDir -Directory -Recurse;
 
 # copy to target
 [LogHelper]::Info("Copy to target...");
-Get-ChildItem -Path $queueDir | Copy-Item -Destination $targetDir -Recurse -Force;
+Get-ChildItem -Path $queueDir | Copy-Item -Destination $targetPath -Recurse -Force;
 
 # clean up queue
 [LogHelper]::Info("Clean up queue...")
