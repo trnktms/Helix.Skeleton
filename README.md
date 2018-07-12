@@ -5,7 +5,7 @@ Accelarate Helix based Sitecore project initial setup and project addition inclu
 
 ### Commands
 #### init.ps1
- 1. Run the `init.ps1` PowerShell script from the `setup` folder, which sets up your solution based on **Sitecore 9 update 2** `default.9.0.180604.config.json` by default. Here is all the settings what you can change:
+ 1. Run the `init.ps1` PowerShell script from the `sk-scripts` folder, which sets up your solution based on **Sitecore 9 update 2** `default.9.0.180604.config.json` by default. Here is all the settings what you can change:
 ```
 {
     "projectName": "MyProject",
