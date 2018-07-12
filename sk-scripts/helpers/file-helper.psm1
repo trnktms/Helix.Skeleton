@@ -7,16 +7,16 @@ class FileHelper {
     }
     
     static ReplaceContent($files, $replaceThis, $replaceWith, $operation) {
-        $realReplaceWith = "";
-        if ($operation) {
-            $realReplaceWith = $operation.Invoke($replaceWith);
-        }
-        else {
-            $realReplaceWith = $replaceWith;
-        }
         foreach ($file in $files) {
             $fileContent = Get-Content -LiteralPath $file.FullName;
             if ($fileContent) {
+                $realReplaceWith = "";
+                if ($operation) {
+                    $realReplaceWith = $operation.Invoke($replaceWith);
+                }
+                else {
+                    $realReplaceWith = $replaceWith;
+                }
                 $fileContent.Replace($replaceThis, $realReplaceWith) | Set-Content -LiteralPath $file.FullName;
             }
         }
