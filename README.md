@@ -3,6 +3,36 @@
 ### Purpose of the project
 Accelarate Helix based Sitecore project initial setup and project addition included with common needs.
 
+### How to use your own template, configuration with your project
+Just use the following parameters when you call `init.ps1` or `add-project.ps1` or `add-module.ps1` optionally:
+- `configPath`
+- `templatePath`
+- `targetPath`
+
+I suggest to download this repository and put it into your own, so your folder structure would look like this for instance:
+- `Helix.Skeleton`
+    - `sk-configs`
+    - `sk-queue`
+    - `sk-scripts`
+    - `sk-templates`
+    - `target`
+- `src`
+- `...`
+
+Change the following files/folders if you want to use your own template or configuration:
+- `sk-configs\default.9.0.180604.config.json`
+- `sk-templates\add-module\default\feature\`
+- `sk-templates\add-project\default\feature\`
+- `sk-templates\add-project\default\foundation\`
+- `sk-templates\init\default\`
+
+Create your own variants of the scripts, e.g.:
+- `init.ps1 -targetPath "C:\projects\MyProject\src"`
+- `add-project.ps1 -targetPath "C:\projects\MyProject\src"`
+- `add-module.ps1 -targetPath "C:\projects\MyProject\src"`
+
+So other developers from the team can use the scripts above.
+
 ### Commands
 #### init.ps1
  1. Run the `init.ps1` PowerShell script from the `sk-scripts` folder, which sets up your solution based on **Sitecore 9 update 2** `default.9.0.180604.config.json` by default. Here is all the settings what you can change:
@@ -106,10 +136,6 @@ You can create your own templates (different, less complex or more complex), you
 
 **Important: your JSON configuration should be in sync with your template!**
 
-### How to use your own template and configuration
-Just use the following parameters when you call `init.ps1` or `add.ps1`:
-- `configPath`
-- `templatePath`
 ### Unicorn sync
  1. Log in the sitecore as admin
  2. Open the unicorn page : {yourdomain/unicorn.aspx}
