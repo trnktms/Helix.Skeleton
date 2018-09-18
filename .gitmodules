@@ -1,0 +1,3 @@
+[submodule "Whatever.Skeleton"]
+	path = Whatever.Skeleton
+	url = https://github.com/trnktms/Whatever.Skeleton.git
