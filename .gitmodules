@@ -1,3 +1,6 @@
 [submodule "Whatever.Skeleton"]
 	path = Whatever.Skeleton
 	url = https://github.com/trnktms/Whatever.Skeleton.git
+[submodule "sk-base"]
+	path = sk-base
+	url = https://github.com/trnktms/sk-base.git
