@@ -11,9 +11,10 @@ Just use the following parameters when you call `init.ps1` or `add-project.ps1` 
 
 I suggest to download this repository and put it into your own, so your folder structure would look like this for instance:
 - `Helix.Skeleton`
+    - `sk-base`
+        - `sk-queue`
+        - `sk-scripts`
     - `sk-configs`
-    - `sk-queue`
-    - `sk-scripts`
     - `sk-templates`
     - `target`
 - `src`
@@ -123,16 +124,7 @@ So other developers from the team can use the scripts above.
  2. This command uses the same `default.9.0.180604.config.json` config above
  3. Include the newly generated files to your Visual Studio project manually
 
-### How to create your own template and configuration
-#### Configuration
-You can create your own configuration with the same parameter names or you can even create your custom parameters.
-Only the `projectName` is a hardcoded and required parameter name but the others can be removed and changed.
-#### Template
-You can create your own templates (different, less complex or more complex), you just need to follow the following placeholder name convention:
-- One level deep parameter: `[<parameterName>]` e.g. `[nugetTargetFramework]`
-- Two or more level deep: `[<firstLevel>.<secondLevel>]` e.g. `[aspNet.lib]`
-- `[guid]`: unique GUID generation in all places where it is used
-- `[[subProjectId]]`: one-time GUID generation, so the same generated GUID is used in all places
+For more documentation about the generator, checkout the base project: https://github.com/trnktms/sk-base
 
 **Important: your JSON configuration should be in sync with your template!**
 
