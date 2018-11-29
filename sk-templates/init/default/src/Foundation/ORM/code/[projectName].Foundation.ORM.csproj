@@ -65,10 +65,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Sitecore.Analytics.Core">
-      <HintPath>..\..\..\packages\Sitecore.Analytics.Core.NoReferences.[sitecore.version]\lib\[sitecore.lib]\Sitecore.Analytics.Core.dll</HintPath>
+      <HintPath>..\..\..\packages\Sitecore.Analytics.Core.[sitecore.version]\lib\[sitecore.lib]\Sitecore.Analytics.Core.dll</HintPath>
     </Reference>
     <Reference Include="Sitecore.Kernel">
-      <HintPath>..\..\..\packages\Sitecore.Kernel.NoReferences.[sitecore.version]\lib\[sitecore.lib]\Sitecore.Kernel.dll</HintPath>
+      <HintPath>..\..\..\packages\Sitecore.Kernel.[sitecore.version]\lib\[sitecore.lib]\Sitecore.Kernel.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />

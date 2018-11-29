@@ -65,7 +65,7 @@
       <HintPath>..\..\..\packages\Rainbow.Storage.Yaml.[rainbow.version]\lib\[rainbow.lib]\Rainbow.Storage.Yaml.dll</HintPath>
     </Reference>
     <Reference Include="Sitecore.Analytics.Core">
-      <HintPath>..\..\..\packages\Sitecore.Analytics.Core.NoReferences.[sitecore.version]\lib\[sitecore.lib]\Sitecore.Analytics.Core.dll</HintPath>
+      <HintPath>..\..\..\packages\Sitecore.Analytics.Core.[sitecore.version]\lib\[sitecore.lib]\Sitecore.Analytics.Core.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />

@@ -57,7 +57,71 @@
     "[guid]" : {
         "type" : "guid",
         "format": "D"
+    }{
+    "projectName": "MyProject",
+    "targetFramework": "v4.6.2",
+    "nugetTargetFramework": "net462",
+    "aspNet": {
+        "lib": "net45",
+        "mvcVersion": "5.2.3",
+        "webPagesVersion": "3.2.3",
+        "razorVersion": "3.2.3"
     },
+    "sitecore": {
+        "version": "9.0.180604",
+        "lib": "NET452"
+    },
+    "glassMapper": {
+        "version": "4.5.0.4",
+        "lib": "net45",
+        "sitecoreVersion": "111",
+        "mvcVersion": "Mvc52"
+    },
+    "castle": {
+        "version": "3.3.3",
+        "lib": "net45"
+    },
+    "rainbow": {
+        "version": "2.0.0",
+        "lib": "net452"
+    },
+    "rainbowCodeGeneration": {
+        "version": "0.3.0",
+        "lib": "net452"
+    },
+    "microsoftDependencyInjection": {
+        "version": "1.0.0",
+        "lib": "netstandard1.1"
+    },
+    "microsoftDependencyInjectionAbstraction": {
+        "version": "1.0.0",
+        "lib": "netstandard1.0"
+    },
+    "unicorn": {
+        "version": "4.0.3",
+        "lib": "net452"
+    },
+    "configy": {
+        "version": "1.0.0",
+        "lib": "net45"
+    },
+    "kamsarWebconsole": {
+        "version": "2.0.0",
+        "lib": "net40"
+    },
+    "microCHAP": {
+        "version": "1.2.2.2",
+        "lib": "net45"
+    },
+    "[guid]" : {
+        "type" : "guid",
+        "format": "D"
+    },
+    "[[subProjectId]]" : {
+        "type" : "guid",
+        "format" : "D"
+    }
+},
     "[[subProjectId]]" : {
         "type" : "guid",
         "format" : "D"
