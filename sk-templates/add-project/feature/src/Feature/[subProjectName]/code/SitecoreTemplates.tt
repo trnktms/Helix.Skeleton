@@ -8,6 +8,8 @@
 <# // NOTE - Reference your Sitecore.Kernel.dll and Sitecore.Logging.dll here #>
 <#@ assembly name="$(SolutionDir)packages\Sitecore.Kernel.NoReferences.[sitecore.version]\lib\[sitecore.lib]\Sitecore.Kernel.dll" #>
 <#@ assembly name="$(SolutionDir)packages\Sitecore.Logging.NoReferences.[sitecore.version]\lib\[sitecore.lib]\Sitecore.Logging.dll" #>
+<#@ assembly name="$(SolutionDir)packages\Microsoft.Extensions.DependencyInjection.Abstractions.1.0.0\lib\netstandard1.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll" #>
+<#@ assembly name="$(SolutionDir)packages\Microsoft.Extensions.DependencyInjection.1.0.0\lib\netstandard1.1\Microsoft.Extensions.DependencyInjection.dll" #>
 <# 
 // CONFIGURATION
 var physicalFileStore = @"..\..\..\..\unicorn\Feature\[subProjectName]"; // the path to your serialisation items
